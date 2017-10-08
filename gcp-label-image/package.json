@@ -1,0 +1,40 @@
+{
+  "name": "google-nodejs",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "samples lint",
+    "pretest": "npm run lint",
+    "test": "samples test run --cmd ava -- -T 1m --verbose system-test/*.test.js"
+  },
+  "author": "serverless.com",
+  "license": "MIT",
+  "engines": {
+    "node": ">=4.3.2"
+  },
+  "dependencies": {
+    "serverless-google-cloudfunctions": "^1.1.1",
+    "@google-cloud/nodejs-repo-tools": "1.4.17",
+    "@google-cloud/storage": "1.1.0",
+    "@google-cloud/vision": "^0.12.0",
+    "async": "2.3.0",
+    "grpc": "^1.6.6",
+    "natural": "0.5.1",
+    "redis": "2.7.1",
+    "yargs": "7.1.0"
+  },
+  "devDependencies": {
+    "@google-cloud/nodejs-repo-tools": "1.4.14",
+    "ava": "0.19.1",
+    "proxyquire": "1.7.11",
+    "sinon": "2.1.0"
+  },
+  "optionalDependencies": {
+    "canvas": "1.6.5"
+  },
+  "cloud-repo-tools": {
+    "requiresKeyFile": true,
+    "requiresProjectId": true
+  }
+}

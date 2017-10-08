@@ -1,0 +1,22 @@
+
+
+service: aws-gcp-proxy
+
+provider:
+  name: aws
+  runtime: python2.7
+  stage: dev
+  timeout: 60
+  environment:
+    GFUNC_URL: ${env:GFUNC_URL}
+
+functions:
+  proxy:
+    handler: handler.process
+    description: Act as a proxy for Google Vision image detection.
+    tags:
+      project: gcp-proxy
+    events:
+      - http:
+          path: detect
+          method: get
