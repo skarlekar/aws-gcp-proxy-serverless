@@ -1,6 +1,6 @@
 # aws-gcp-proxy-serverless
 
-A simple demonstration of using Serverless Framework to Deploy & Manage Serverless Micro-services
+A demonstration of using Serverless Framework to Deploy & Manage Serverless Micro-services
 across AWS and Google Cloud Platforms.
 
 Code Repository can be found [here](https://github.com/skarlekar/aws-gcp-proxy-serverless).
@@ -12,6 +12,8 @@ This is an simple tutorial to demonstrate how to deploy multiple services on dif
 More specifically, this tutorial walks you through deploying an image detection service on Google Cloud Platform (GCP) and managing it using a proxy service running on Amazon Web Service. Both the services on either platform is 100% serverless.
 
 The image detection service running on GCP uses  Google's FaaS solution viz., Cloud Functions and the proxy running on AWS uses Amazon's FaaS solution viz., Lambda.
+
+In a typical scenario, you will use a service such as this to detect the contents of an image uploaded to a S3 bucket and take appropriate actions based on the result. For instance, you could use it to blur/reject the image based on the vulgarity or get the image labels and chain it to other services that will translate the labels to multiple languages to cater to your customer needs.
 
 # Setup
 
@@ -117,7 +119,7 @@ $
 ## aws-gcp-proxy
 The aws-gcp-proxy is the service that will be deployed on AWS. It is a Python-based service that will take an image URL passed through the HTTP request and send it to the *Cloud Function* deployed on GCP.
 
-In a typical use, you will use it to detect the content of an image uploaded to a S3 bucket to detect the nature of the image's content and take appropriate actions based on the result. For instance, you could use it to blur/reject the image based on the vulgarity or get the image label and chain it to another service that will translate the labels to multiple languages to cater to your customer needs.
+In a typical use, you will use it to detect the content of an image uploaded to a S3 bucket and take appropriate actions based on the result. For instance, you could use it to blur/reject the image based on the vulgarity or get the image label and chain it to another service that will translate the labels to multiple languages to cater to your customer needs.
 
 The image URL should be passed as an HTTP parameter named **imageUri**. If this parameter is missing the service uses a default image URL to detect and return the contents.
 
